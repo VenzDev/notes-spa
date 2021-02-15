@@ -13,13 +13,7 @@ import {
 } from "@material-ui/core";
 import s from "./Table.module.css";
 import { Link } from "react-router-dom";
-import {
-  ASC,
-  CREATED_AT,
-  DESC,
-  TITLE,
-  UPDATED_AT,
-} from "../../constraints/constraints";
+import { ASC, CREATED_AT, DESC, TITLE, UPDATED_AT } from "../../constraints/constraints";
 import { deleteNote } from "../../Api/api";
 
 export default (props) => {
@@ -57,13 +51,8 @@ export default (props) => {
         );
     } else if (sortBy === CREATED_AT) {
       if (currentOrder === ASC)
-        dataToSort = dataToSort.sort((a, b) =>
-          a.created_at < b.created_at ? -1 : 1
-        );
-      else
-        dataToSort = dataToSort.sort((a, b) =>
-          a.created_at < b.created_at ? 1 : -1
-        );
+        dataToSort = dataToSort.sort((a, b) => (a.created_at < b.created_at ? -1 : 1));
+      else dataToSort = dataToSort.sort((a, b) => (a.created_at < b.created_at ? 1 : -1));
     }
 
     setData(dataToSort);
@@ -153,12 +142,8 @@ export default (props) => {
                 >
                   <TableCell>{indx + 1}</TableCell>
                   <TableCell>{item.latest_version.title}</TableCell>
-                  <TableCell>
-                    {new Date(item.created_at).toLocaleString()}
-                  </TableCell>
-                  <TableCell>
-                    {new Date(item.latest_version.updated_at).toLocaleString()}
-                  </TableCell>
+                  <TableCell>{new Date(item.created_at).toUTCString()}</TableCell>
+                  <TableCell>{new Date(item.latest_version.updated_at).toUTCString()}</TableCell>
                   <TableCell>
                     <Button
                       onClick={(e) => handleDelete(e, item.id)}

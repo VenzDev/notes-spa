@@ -52,7 +52,7 @@ export default ({ open, handleClose, noteId }) => {
                 </p>
                 <p>
                   <span>Created at: </span>
-                  {new Date(version.created_at).toLocaleString()}
+                  {new Date(version.created_at).toUTCString()}
                 </p>
               </div>
             ))}

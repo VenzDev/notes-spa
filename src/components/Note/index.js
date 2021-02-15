@@ -72,11 +72,11 @@ const Note = (props) => {
               <p>Your note</p>
               <p>
                 <span>Created at: </span>
-                {new Date(note.created_at).toLocaleString()}
+                {new Date(note.created_at).toUTCString()}
               </p>
               <p>
                 <span>Updated at: </span>
-                {new Date(note.latest_version.updated_at).toLocaleString()}
+                {new Date(note.latest_version.updated_at).toUTCString()}
               </p>
               <TextField
                 className={s.marginBottom}
