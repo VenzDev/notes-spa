@@ -3,11 +3,16 @@ import { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getNote, updateNote } from "../../Api/api";
+import HistoryModal from "../HistoryModal";
 import s from "./Note.module.css";
 
 const Note = (props) => {
   const [note, setNote] = useState(null);
+  const [open, setOpen] = useState(false);
   const [isLoading, setLoading] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const fetchNote = async () => {
     const result = await getNote(props.match.params.id);
@@ -47,6 +52,7 @@ const Note = (props) => {
 
   return (
     <div className={s.NoteContainer}>
+      {note && <HistoryModal noteId={note.id} open={open} handleClose={handleClose} />}
       <Paper className={s.padding}>
         <div className={s.flex}>
           <Link className={s.link} to="/">
@@ -55,7 +61,7 @@ const Note = (props) => {
             </Button>
           </Link>
           {note && (
-            <Button variant="contained" color="secondary">
+            <Button onClick={handleOpen} variant="contained" color="secondary">
               History
             </Button>
           )}

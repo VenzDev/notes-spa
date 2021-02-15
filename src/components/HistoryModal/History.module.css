@@ -1,0 +1,39 @@
+.modalWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.content {
+  padding: 2rem;
+  background-color: white;
+  outline: none;
+  position: relative;
+  height: 120vh;
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.historyItem {
+  width: 90%;
+  margin: 1rem auto;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 2rem;
+}
+.historyItem p {
+  margin-bottom: 1rem;
+}
+
+.historyItem p span {
+  width: 120px;
+  display: inline-block;
+}

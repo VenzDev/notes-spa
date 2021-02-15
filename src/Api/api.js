@@ -25,3 +25,8 @@ export const getNote = async (id) => {
 export const updateNote = async (data) => {
   await api.put("/update-note", data);
 };
+
+export const getHistory = async (id) => {
+  const fetchedData = await api.get(`/get-note-history/${id}`);
+  return fetchedData.data;
+};
