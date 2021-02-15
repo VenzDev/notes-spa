@@ -63,7 +63,6 @@ export default ({ open, handleClose, fetchNotes }) => {
               label="Title"
             />
             <TextField
-              err
               variant="outlined"
               className={s.input}
               disabled={isLoading}

@@ -24,12 +24,6 @@ const Home = () => {
     fetchNotes();
   }, []);
 
-  const styles = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
   return !isLoading ? (
     <>
       <CreateNewButton handler={handleOpen} />

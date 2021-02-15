@@ -10,7 +10,6 @@ export default ({ open, handleClose, noteId }) => {
   const fetchHistory = async () => {
     const result = await getHistory(noteId);
     setHistory(result.data);
-    console.log(result.data);
   };
 
   useEffect(() => {
